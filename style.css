@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 60%;
+}
+
+body {
+  font-family: 'Play', sans-serif;
+  width: 100%;
+  font-weight: 400;
+  height: 100vh;
+  color: #000;
+  background-image: linear-gradient(to top right, #e2b810 0%, #ec3b05 100%);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+/* Layout */
+main {
+  margin: auto auto;
+  position: relative;
+  width: 80%;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+
+.player {
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+.box {
+  width: 100%;
+  display: grid;
+}
+
+.player--0 {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+.player--1 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+/* Elements */
+.name {
+  position: relative;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #ee7d05;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.player--active .name {
+  font-weight: 700;
+}
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current {
+  background-color: #ee7d05;
+  opacity: 0.8;
+  border-radius: 9px;
+  width: min-content;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #eee;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  max-width: 30%;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.3rem 1.4rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.img--box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 10rem;
+}
+
+.img--box img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+
+.btn--new {
+  top: 3rem;
+}
+.btn--roll {
+  top: 40rem;
+}
+.btn--hold {
+  top: 46rem;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #d50b0b;
+}
+
+@media screen and (max-width: 768px) {
+  .box {
+    width: 50%;
+  }
+  .player--0 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+
+  .player--1 {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+
+  .player {
+    padding: 2rem;
+    border: 1px solid blanchedalmond;
+    justify-content: space-between;
+  }
+
+  .score {
+    margin: 0;
+  }
+
+  .current {
+    padding: 1rem;
+  }
+
+  .img--box {
+    left: 75%;
+    top: 43%;
+  }
+
+  .btn--hold {
+    top: 50rem;
+  }
+  .btn {
+    left: 75%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+
+  .btn--roll {
+    top: 45rem;
+  }
+
+  .btn--hold {
+    top: 55rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btn {
+    padding: 2rem;
+  }
+
+  .img--box {
+    width: 30%;
+  }
+
+  .btn--hold {
+    top: 58rem;
+  }
+}
